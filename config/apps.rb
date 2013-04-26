@@ -1,0 +1,1 @@
+Padrino.mount("CucumberViewer").to('/')

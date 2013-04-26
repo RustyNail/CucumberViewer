@@ -1,0 +1,36 @@
+.row
+  input type='checkbox' id='hidefeature' onclick='checkFeature()' Hide Feature
+  input type='checkbox' id='hidescenario' onclick='checkScenario()' Hide Scenario
+  hr
+  - get_feature_name.each do |name|
+    fieldset
+      legend.featurename = name
+      div.feature
+        - get_data(name)['Feature'].each do |feature|
+          - if feature =~ /Feature/
+            div
+              span.highlight = split_key(feature)[:key]
+              span = split_key(feature)[:other]
+          - else
+            div.indent2
+              span.highlight = split_key(feature)[:key]
+              span = split_key(feature)[:other]
+      div.scenario
+        - get_data(name)['Scenario'].each do |scenario|
+          - if scenario =~ /(Examples|Scenario.*):/
+            br.scenario
+          - case scenario
+          - when /^Scenario.*:/
+            div
+              span.highlight = split_key(scenario)[:key]
+              span = split_key(scenario)[:other]
+          - when /\|.*\|/
+            div.indent4
+              span.highlight = split_key(scenario)[:key]
+              span = split_key(scenario)[:other]
+          - else
+            div.indent2
+              span.highlight = split_key(scenario)[:key]
+              span = split_key(scenario)[:other]
+    br
+

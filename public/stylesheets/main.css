@@ -1,0 +1,27 @@
+body h1 {
+  color: green;
+}
+
+.featurename {
+  color: darkcyan;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+legend {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.indent2 {
+  margin-left: 1em;
+}
+
+.indent4 {
+  margin-left: 2em;
+}
+
+.highlight {
+  color: darkblue;
+  font-weight: bold;
+}

@@ -1,26 +1,81 @@
-body h1 {
-  color: green;
+fieldset {
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
 }
-
 .featurename {
   color: darkcyan;
-  font-size: 22px;
-  margin-bottom: 5px;
+  font-size: 20px;
+}
+/** left area settings **/
+#left {
+  border-right: 1px grey solid;
+  float: left;
+  height: 100%;
+  padding-right: 5px;
+  position: fixed;
+  top: 0;
+}
+#left h1 {
+  color: yellowgreen;
+}
+#left #index {
+  background-color: mintcream;
+  margin-top: 10px;
+}
+#left #index ul {
+  margin: 0 1em 0 -1em;
+  width: 280px;
+}
+#left #index ul li {
+  top: 120px;
+}
+#left #index ul li a {
+  overflow: hidden;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+div.check-group input {
+  display: none;
+}
+div.check-group label {
+  background-color: #eee;
+  border: solid 1px #aaa;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 2px;
+}
+div.check-group input:checked+label, div.check-group label.checked {
+  color: #ffffff;
+  background-color: #c3c3c3;
 }
 
+/** right area settings **/
+#right {
+  margin-left: 350px;
+}
+#right fieldset {
+  margin-left: 1em;
+}
+#right a.featurename {
+  text-decoration: none;
+}
+#right .featurename {
+  margin-bottom: 5px;
+}
 legend {
   padding-right: 10px;
   padding-left: 10px;
 }
-
 .indent2 {
   margin-left: 1em;
 }
-
 .indent4 {
   margin-left: 2em;
 }
-
 .highlight {
   color: darkblue;
   font-weight: bold;

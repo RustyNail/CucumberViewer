@@ -6,7 +6,7 @@ CucumberViewer.helpers do
   def get_feature_name
     files = []
     Dir::foreach(feature_dir) { |f| files.push $& if f =~ /^.*\.feature$/ }
-    files
+    files.sort
   end
 
   def get_data(file)
@@ -22,7 +22,7 @@ CucumberViewer.helpers do
   def split_key(target)
     keyword = YAML.load_file(File.expand_path('config/cucumber.yml', Padrino.root))
     keyword.map do |kw|
-    return { :key => kw, :other => target.gsub(kw,'') } if target.include? kw
+      return { :key => kw, :other => target.gsub(kw,'') } if target.include? kw
     end
     return { :key => '', :other => target }
   end

@@ -80,3 +80,8 @@ legend {
   color: darkblue;
   font-weight: bold;
 }
+.toggle {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-bottom: -2px;
+}

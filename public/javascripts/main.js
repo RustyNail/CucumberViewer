@@ -2,11 +2,13 @@ var speed = 'normal';
 function switchView(target) {
   switch(target) {
     case 'feature':    
+      var br = $('.wrap > .scenario > br:first-child');
       if($('#hidefeature').is(':checked')) {
         $('.feature').hide(speed);
-        $('br.scenario:nth-child(1)').hide();
+        br.hide();
       } else {
         $('.feature').show(speed);
+        br.show();
       }
       break;
     case 'scenario':
@@ -17,12 +19,14 @@ function switchView(target) {
       }
       break;
     default:
-      if($(target +  ' legend input').attr('src') == '/images/plus.gif') {
-        $(target +  ' .wrap').show(speed);
-        $(target +  ' legend input').attr('src', '/images/minus.gif');
+      var input = $(target +  ' legend input');
+      var wrap = $(target +  ' .wrap');
+      if(input.attr('src') == '/images/plus.gif') {
+        wrap.show(speed);
+        input.attr('src', '/images/minus.gif');
       } else {
-        $(target +  ' .wrap').hide(speed);
-        $(target +  ' legend input').attr('src', '/images/plus.gif');
+        wrap.hide(speed);
+        input.attr('src', '/images/plus.gif');
       }
       break;
   }

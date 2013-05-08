@@ -10,7 +10,7 @@
       ul
         - get_feature_name.each do |name|
           li
-            a.featurename href="##{name}"
+            a.featurename href="##{name.gsub('.feature','')}"
               = name
   div#right
     - get_feature_name.each do |name|

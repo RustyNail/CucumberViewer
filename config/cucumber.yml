@@ -1,12 +1,18 @@
-- Feature
-- In order
-- As a
-- So that
-- I want
-- Scenario Outline
-- Scenario
-- Given
-- When
-- Then
-- And
-- Examples
+ja:
+  - 機能
+  - シナリオアウトライン
+  - シナリオ
+  - 前提
+  - もし
+  - ならば
+  - かつ
+  - 例
+en:
+  - Feature
+  - Scenario Outline
+  - Scenario
+  - Given
+  - When
+  - Then
+  - And
+  - Examples

@@ -6,9 +6,10 @@ CucumberViewer is application for see code written in cucumber by browser.
 ## How to start this application
 
 ```
-$ (bundle exec) padrino start [-p port] [-d]
+$ (bundle exec) padrino start [-p port] [-d] 
 ```
 
+* If you wrote in Japanese, Please start it after "export CUCUMBER_LANG='ja".
 * If you start with 3000 port, You can see Cucumber Viewer with "http://localhost:3000/"
 
 ## What you need

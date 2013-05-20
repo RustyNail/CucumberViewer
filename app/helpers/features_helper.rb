@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+#
 CucumberViewer.helpers do
   def feature_dir
     File.expand_path('features', Padrino.root)
@@ -12,16 +14,26 @@ CucumberViewer.helpers do
   def get_data(file)
     data = { 'Scenario' => [], 'Feature' => [] }
     f = open("#{feature_dir}/#{file}")
+    reg = lang == 'en' ? ['Feature','Scenario'] : ['機能','シナリオ']
     while line = f.gets
-      target = $& if line =~ /^(Feature|Scenario)/
-      data[target].push line if target && line !~ /@/
+      target = $& if line =~ /^(#{reg.join('|')})/
+      case target
+      when 'Feature', '機能'
+        data['Feature'].push line if target && line !~ /@/
+      when 'Scenario', 'シナリオ'
+        data['Scenario'].push line if target && line !~ /@/
+      end
     end
     data
   end
 
+  def lang
+    return ENV['CUCUMBER_LANG'] || 'en' 
+  end
+
   def split_key(target)
     keyword = YAML.load_file(File.expand_path('config/cucumber.yml', Padrino.root))
-    keyword.map do |kw|
+    keyword[lang].map do |kw|
       return { :key => kw, :other => target.gsub(kw,'') } if target.include? kw
     end
     return { :key => '', :other => target }

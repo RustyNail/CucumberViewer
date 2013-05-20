@@ -21,7 +21,7 @@
         div.wrap
           div.feature
             - get_data(name)['Feature'].each do |feature|
-              - if feature =~ /Feature/
+              - if feature =~ /(Feature|機能)/
                 div
                   span.highlight = split_key(feature)[:key]
                   span = split_key(feature)[:other]
@@ -31,10 +31,10 @@
                   span = split_key(feature)[:other]
           div.scenario
             - get_data(name)['Scenario'].each do |scenario|
-              - if scenario =~ /(Examples|Scenario.*):/
+              - if scenario =~ /(Examples|Scenario.*|例|シナリオ.*):/
                 br.scenario
               - case scenario
-              - when /^Scenario.*:/
+              - when /^(Scenario|シナリオ).*:/
                 div
                   span.highlight = split_key(scenario)[:key]
                   span = split_key(scenario)[:other]
